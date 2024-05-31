@@ -17,11 +17,11 @@ const Dashboard = () => {
       <div className="flex flex-col w-[80%] mx-auto mt-4">
         
         <nav className="flex justify-around border-b border-gray-200">
-          <Link to="/dashboard" className="p-2 text-blue-500">
-            Dashboard
+          <Link to="/statistics" className="p-2 text-blue-500">
+            Statistics
           </Link>
           <Link to="/transaction-dashboard" className="p-2 text-blue-500">
-            Table
+            Transaction Dashboard
           </Link>
           <Link to="/bar-chart" className="p-2 text-blue-500">
             Bar Chart
@@ -33,7 +33,7 @@ const Dashboard = () => {
         <div className="mt-4">
           <Routes>
             <Route
-              path="/dashboard"
+              path="/statistics"
               element={<Statistics selectedMonth={selectedMonth} />}
             />
             <Route
