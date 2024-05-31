@@ -1,14 +1,11 @@
+import Dashboard from "./pages/Dashboard";
 
-import './App.css'
-import TestUI from './components/test'
 
-function App() {
 
+const App = () => {
   return (
-    <>
-     <TestUI/>
-    </>
-  )
-}
+      <Dashboard />
+  );
+};
 
-export default App
+export default App;

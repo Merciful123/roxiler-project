@@ -1,0 +1,35 @@
+.table-row {
+  border-bottom: 1px solid #ddd;
+}
+
+.table-cell {
+  padding: 8px 16px;
+  border-right: 1px solid #ddd;
+}
+
+.table-cell:last-child {
+  border-right: none;
+}
+
+.table-cell:first-child {
+  border-left: 1px solid #ddd;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-header-cell {
+  background-color: #f9f9f9;
+  font-weight: bold;
+  border-top: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
+}
+
+.table-header-cell:first-child {
+  border-left: 1px solid #ddd;
+}
+
+.table-header-cell:last-child {
+  border-right: 1px solid #ddd;
+}
