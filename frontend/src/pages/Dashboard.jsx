@@ -1,5 +1,3 @@
-// src/components/Dashboard.js
-
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import MonthDropdown from "../components/MonthDropdown";
 import { TableUINew } from "../components/TransactionTable";
