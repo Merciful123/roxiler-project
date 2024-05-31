@@ -37,7 +37,7 @@ export function TableUINew({ selectedMonth, onMonthChange }) {
   const fetchTransactions = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4040/api/transactions/list`,
+        `https://roxiler-project-gv4j.onrender.com/transactions/list`,
         {
           params: { month: selectedMonth, search, page, perPage },
         }

@@ -10,7 +10,7 @@ const PieChart = ({ selectedMonth }) => {
     const fetchPieChartData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4040/api/transactions/piechart`,
+          `https://roxiler-project-gv4j.onrender.com/transactions/piechart`,
           { params: { month: selectedMonth } }
         );
         setChartData(response.data);

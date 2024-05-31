@@ -10,7 +10,8 @@ const BarChart = ({ selectedMonth }) => {
     const fetchBarChartData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4040/api/transactions/barchart`,
+          // `http://localhost:4040/api/transactions/barchart`,
+          `https://roxiler-project-gv4j.onrender.com/transactions/barchart`,
           { params: { month: selectedMonth } }
         );
         setChartData(response.data);
