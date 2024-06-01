@@ -68,10 +68,10 @@ export function TableUINew({ selectedMonth, onMonthChange }) {
 
   const topContent = useMemo(() => {
     return (
-      <div className="flex justify-between w-[80%] mx-auto mb-4">
+      <div className="flex max-sm:flex-col justify-between w-[80%] mx-auto mb-4">
         <Input
           isClearable
-          className="sm:max-w-[44%] lg:w-[25%] bg-yellow-100 rounded-[32px] px-5 py-1"
+          className="max-sm:w-[98%]  lg:w-[25%] bg-yellow-100 rounded-[32px] px-5 py-1"
           placeholder="Search..."
           // startContent={<SearchIcon />}
           value={search}
@@ -101,7 +101,7 @@ export function TableUINew({ selectedMonth, onMonthChange }) {
         </p>
       ) : (
         <Table
-          className="bg-yellow-100 rounded-3xl w-[80%] mx-auto h-[60vh] overflow-auto"
+          className="bg-yellow-100 rounded-3xl w-[80%] max-sm:w-[98%] mx-auto h-[60vh] overflow-auto"
           aria-label="Example table with client side pagination "
         >
           <TableHeader>

@@ -4,7 +4,6 @@ import {
   Routes,
   NavLink,
 } from "react-router-dom";
-import MonthDropdown from "../components/MonthDropdown";
 import { TableUINew } from "../components/TransactionTable";
 import Statistics from "../components/Statistics";
 import BarChart from "../components/BarChart";
