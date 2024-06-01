@@ -16,7 +16,7 @@ const Statistics = ({ selectedMonth }) => {
   const fetchStatistics = async () => {
     try {
       const response = await axios.get(
-        `https://roxiler-project-gv4j.onrender.com/transactions/statistics`,
+        `https://roxiler-project-gv4j.onrender.com/api/transactions/statistics`,
         {
           params: { month: selectedMonth },
         }

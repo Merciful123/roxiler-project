@@ -11,7 +11,7 @@ const BarChart = ({ selectedMonth }) => {
       try {
         const response = await axios.get(
           // `http://localhost:4040/api/transactions/barchart`,
-          `https://roxiler-project-gv4j.onrender.com/transactions/barchart`,
+          `https://roxiler-project-gv4j.onrender.com/api/transactions/barchart`,
           { params: { month: selectedMonth } }
         );
         setChartData(response.data);
