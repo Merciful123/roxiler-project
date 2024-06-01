@@ -29,15 +29,18 @@ export const listTransactions = async (req, res) => {
     `Month: ${month}, Search: ${search}, Page: ${page}, PerPage: ${perPage}, MonthNumber: ${monthNumber}`
   );
 
-  const searchQuery = search
-    ? {
-        $or: [
-          { title: { $regex: search, $options: "i" } },
-          { description: { $regex: search, $options: "i" } },
-          { price: { $regex: search, $options: "i" } }, // Converting price to string
-        ],
-      }
-    : {};
+  let searchQuery = {};
+
+  if (search) {
+    const searchRegex = new RegExp(search, "i");
+    searchQuery = {
+      $or: [
+        { title: searchRegex },
+        { description: searchRegex },
+        { price: isNaN(search) ? null : parseFloat(search) }, // Convert search to number if possible
+      ].filter(Boolean), // Remove null values
+    };
+  }
 
   try {
     const transactions = await Transaction.find({

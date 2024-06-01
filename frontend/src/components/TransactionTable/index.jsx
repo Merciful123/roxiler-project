@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import axios from "axios";
 import {
   Table,
@@ -12,6 +12,7 @@ import {
 } from "@nextui-org/react";
 import "./index.css";
 import MonthDropdown from "../MonthDropdown";
+// import { SearchIcon } from "./SearchIcon"; // Make sure to have an icon for search
 
 const getKeyValue = (item, key) => {
   const value = item[key];
@@ -51,25 +52,47 @@ export function TableUINew({ selectedMonth, onMonthChange }) {
     }
   };
 
+  const onSearchChange = useCallback((value) => {
+    if (value) {
+      setSearch(value);
+      // setPage(1);
+    } else {
+      setSearch("");
+    }
+  }, []);
+
+  const onClear = useCallback(() => {
+    setSearch("");
+    setPage(1);
+  }, []);
+
+  const topContent = useMemo(() => {
+    return (
+      <div className="flex justify-between w-[80%] mx-auto mb-4">
+        <Input
+          isClearable
+          className="sm:max-w-[44%] lg:w-[25%] bg-yellow-100 rounded-[32px] px-5 py-1"
+          placeholder="Search..."
+          // startContent={<SearchIcon />}
+          value={search}
+          onClear={onClear}
+          onValueChange={onSearchChange}
+        />
+        <MonthDropdown
+          selectedMonth={selectedMonth}
+          onMonthChange={onMonthChange}
+        />
+      </div>
+    );
+  }, [search, onClear, onSearchChange, selectedMonth, onMonthChange]);
+
   return (
     <>
       <div className="flex flex-col justify-center items-center ">
         <div className=" rounded-[50%] bg-white flex justify-center text-center text-2xl font-semibold items-center h-[10rem] w-[10rem]">
           Transaction Dashboard
         </div>
-        <div className=" flex justify-between w-[80%] mx-auto">
-          <Input
-            isClearable
-            className="sm:max-w-[44%] lg:w-[25%] bg-yellow-100 rounded-[32px] px-5 mb-4 py-1"
-            placeholder="Search..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <MonthDropdown
-            selectedMonth={selectedMonth}
-            onMonthChange={onMonthChange}
-          />
-        </div>
+        {topContent}
       </div>
 
       {error ? (

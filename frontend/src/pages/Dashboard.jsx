@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  NavLink,
+} from "react-router-dom";
 import MonthDropdown from "../components/MonthDropdown";
 import { TableUINew } from "../components/TransactionTable";
 import Statistics from "../components/Statistics";
@@ -12,30 +17,54 @@ const Dashboard = () => {
   const handleMonthChange = (newMonth) => {
     setSelectedMonth(newMonth);
   };
+
   return (
     <Router>
       <div className="flex flex-col w-[80%] mx-auto mt-4">
-        
         <nav className="flex justify-around border-b border-gray-200">
-          <Link to="/statistics" className="p-2 text-blue-500">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "p-2 text-blue-700 font-bold border-b-2 border-blue-700"
+                : "p-2 text-blue-500"
+            }
+          >
             Statistics
-          </Link>
-          <Link to="/transaction-dashboard" className="p-2 text-blue-500">
+          </NavLink>
+          <NavLink
+            to="/transaction-dashboard"
+            className={({ isActive }) =>
+              isActive
+                ? "p-2 text-blue-700 font-bold border-b-2 border-blue-700"
+                : "p-2 text-blue-500"
+            }
+          >
             Transaction Dashboard
-          </Link>
-          <Link to="/bar-chart" className="p-2 text-blue-500">
+          </NavLink>
+          <NavLink
+            to="/bar-chart"
+            className={({ isActive }) =>
+              isActive
+                ? "p-2 text-blue-700 font-bold border-b-2 border-blue-700"
+                : "p-2 text-blue-500"
+            }
+          >
             Bar Chart
-          </Link>
-          <Link to="/pie-chart" className="p-2 text-blue-500">
+          </NavLink>
+          <NavLink
+            to="/pie-chart"
+            className={({ isActive }) =>
+              isActive
+                ? "p-2 text-blue-700 font-bold border-b-2 border-blue-700"
+                : "p-2 text-blue-500"
+            }
+          >
             Pie Chart
-          </Link>
+          </NavLink>
         </nav>
         <div className="mt-4">
           <Routes>
-            <Route
-              path="/statistics"
-              element={<Statistics selectedMonth={selectedMonth} />}
-            />
             <Route
               path="/transaction-dashboard"
               element={
@@ -45,7 +74,6 @@ const Dashboard = () => {
                 />
               }
             />
-
             <Route
               path="/bar-chart"
               element={<BarChart selectedMonth={selectedMonth} />}
