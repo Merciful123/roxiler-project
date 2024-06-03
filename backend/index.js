@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename); // Get the directory name
 
 const app = express();
 const PORT = process.env.PORT || 5000; // Default to port 5000 if PORT is not defined
-const DB_URL = process.env.DB_URL;
+const DATABASE_URL = process.env.DATABASE_URL;
 
 app.use(cors());
 app.use(express.json());
